@@ -1,0 +1,10 @@
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "button mb-6" %>
+
+<h1 class="title">Welcome to URL Shortener</h1>
+
+<section class="section">
+  <h2 class="title is-5">Your urls</h2>
+  <%= render "table", urls: @urls %>
+</section>
+
+<%= link_to "Shorten a new url", :new_url, class: "button" %>

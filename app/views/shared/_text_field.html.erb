@@ -1,0 +1,7 @@
+<div class="field">
+  <%= f.label name, (local_assigns[:text] ? text : name.capitalize), class: "label" %>
+  <%= f.text_field name, class: "input #{'is-danger' if @url.errors.messages_for(name).any?}" %>
+  <% @url.errors.full_messages_for(name).each do |msg| %>
+    <p class="help is-danger"><%= msg %></p>
+  <% end %>
+</div>

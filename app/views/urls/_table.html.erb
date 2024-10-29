@@ -1,0 +1,24 @@
+<table class="table is-hoverable">
+  <thead>
+    <tr>
+      <th>No. </th>
+      <th>Url Link</th>
+      <th>Alias</th>
+      <th>Created on</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% urls.each_with_index.map do |url, index| %>
+      <tr>
+        <td><%= index + 1%></td>
+        <td><a href="<%= url.body%>"><%= url.body %></a></td>
+        <td><%= url.alias %></td>
+        <td><%= url.created_at %></td>
+        <td class="buttons">
+          <%= link_to "View", url, class: "button is-info is-dark" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

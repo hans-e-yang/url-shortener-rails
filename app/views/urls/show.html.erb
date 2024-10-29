@@ -1,0 +1,50 @@
+<%= link_to "Back", urls_path, class: "button block" %>
+
+<h1 class="title"><%= @url.alias %></h1>
+
+<%# Show some stats and then an edit form and delete button. %>
+<%# Later, add a chart to show clicks over time %>
+
+<h2 class="title is-5">Information</h2>
+<div class="box level">
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="title is-4">Url Destination</p>
+      <a href="<% @url.body %>" class="heading"><%= @url.body %></a>
+    </div>
+  </div>
+
+  <div class="level-item has-text-centered">
+    <div>
+      <p class="title is-4">Created on</p>
+      <p class="heading"><%= @url.created_at %></p>
+    </div>
+  </div>
+</div>
+
+<h2 class="title is-5">Edit</h2>
+<div class="box">
+  <%= render "form", model: @url, url: @url %>
+</div>
+
+<button data-target="delete-url" class="button is-danger is-dark js-modal-trigger">Delete url</button>
+
+<div id="delete-url" class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Delete this URL?</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+      <p>Are you sure you want to delete this url?</p>
+      <p class="help is-danger">This action cannot be undone</p>
+    </section>
+    <footer class="modal-card-foot">
+      <div class="buttons">
+        <%= link_to "Delete", @url, class: "button is-danger is-dark", data: {turbo_method: :delete} %>
+        <button class="button">Cancel</button>
+      </div>
+    </footer>
+  </div>
+</div>

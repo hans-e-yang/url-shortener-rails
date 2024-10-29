@@ -1,0 +1,7 @@
+<%= form_with url: local_assigns[:url]? url : nil, model: model do |f| %>
+  <%= render "shared/text_field", f: f, name: :body, text: "Long url" %>
+
+  <%= render "shared/text_field", f: f, name: :alias %>
+
+  <%= f.submit class: "button" %>
+<% end %>
