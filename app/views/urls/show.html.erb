@@ -2,7 +2,6 @@
 
 <h1 class="title"><%= @url.alias %></h1>
 
-<%# Show some stats and then an edit form and delete button. %>
 <%# Later, add a chart to show clicks over time %>
 
 <h2 class="title is-5">Information</h2>
@@ -10,7 +9,7 @@
   <div class="level-item has-text-centered">
     <div>
       <p class="title is-4">Url Destination</p>
-      <a href="<% @url.body %>" class="heading"><%= @url.body %></a>
+      <a href="<%= @url.body %>" class="heading"><%= @url.body %></a>
     </div>
   </div>
 
@@ -22,10 +21,16 @@
   </div>
 </div>
 
+<div class="block">
+  Try the link:
+  <a href="/<%= @url.alias %>"> here </a>
+</div>
+
 <h2 class="title is-5">Edit</h2>
 <div class="box">
   <%= render "form", model: @url, url: @url %>
 </div>
+
 
 <button data-target="delete-url" class="button is-danger is-dark js-modal-trigger">Delete url</button>
 
